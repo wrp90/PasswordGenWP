@@ -1,6 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  
+  passwordText.value = password;
+}
+var lowerC = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var symValue = ['!','@','#','$','%','^','&','*','(',')'];
 var capitalValue = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var numValue = ['1','2','3','4','5','6','7','8','9','0'];
@@ -22,34 +30,59 @@ function generatePassword() {
     }
   }
   var specialCharacters = confirm("Would you like special characters?");
+  var lowerCase = confirm("Would you like lower case letters?")
   var upperCase = confirm("Would you like upper case letters?");
   var numbers = confirm("Would you like numbers?");
   var passFinal = []
-  if (specialCharacters && upperCase && numbers == true) {
+  if (specialCharacters && upperCase && numbers && lowerCase == true) {
+    passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue).concat(lowerC);
+    } else if (specialCharacters && uppercase && numbers == true) {
     passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue);
-    } else if (specialCharacters && uppercase == true) {
-    passFinal = passFinal.concat(symValue).concat(capitalValue);
-    } else if (upperCase && numbers == true) {
-    passFinal = passFinal.concat(upperCase).concat(numValue);
+    } else if (upperCase && numbers && lowerCase == true) {
+    passFinal = passFinal.concat(capitalValue).concat(numValue).concat(lowerC);
+    } else if (specialCharacters && numbers && lowerCase == true) {
+    passFinal = passFinal.concat(symValue).concat(numValue).concat(lowerC);
+    } else if (specialCharacters && upperCase && lowerCase == true) {
+    passFinal = passFinal.concat(symValue).concat(capitalValue).concat(lowerC);
+    } else if (numbers && upperCase == true) {
+    passFinal = passFinal.concat(numValue).concat(capitalValue);
+    } else if (numbers && lowerCase == true) {
+      passFinal = passFinal.concat(numValue).concat(lowerC);
+    } else if (uppercase && lowerCase == true) {
+    passFinal = passFinal.concat(capitalValue).concat(lowerC);
+    } else if (specialCharacters && lowerCase == true) {
+    passFinal = passFinal.concat(symValue).concat(lowerC);
+    } else if (specialCharacters && upperCase == true) {
+      passFinal = passFinal.concat(symValue).concat(capitalValue);
     } else if (specialCharacters && numbers == true) {
-    passFinal = passFinal.concat(symValue).concat(numValue);
-    } else if (numbers == true) {
-    passFinal = passFinal.concat(numValue);
+      passFinal = passFinal.concat(symValue).concat(numValue);
     } else if (uppercase == true) {
-    passFinal = passFinal.concat(capitalValue);
+      passFinal = passFinal.concat(capitalValue);
+    } else if (numbers == true) {
+      passFinal = passFinal.concat(numValue);
     } else if (specialCharacters == true) {
-    passFinal = passFinal.concat(symValue);
+      passFinal = passFinal.concat(symValue);
+    } else if (lowerCase == true) {
+      passFinal = passFinal.concat(lowerC);
     }
-    passwordGen(passFinal, passLength) 
+    // passwordGen(passFinal, passLength) 
+  
+  var passGen = ""
+  for (var i = 0; i < passLength; i++) {
+  var rand = Math.floor(Math.random() * passFinal.length);
+  var arrayGen = passFinal[rand];
+  passGen += arrayGen
+  }
+  return passGen;
 }
 
-function passwordGen(passFinal, passLength) {
-  var passGen = ""
-    for (var i = 0; i < passLength; i++) {
-    var rand = Math.floor(Math.random() * passFinal.length);
-    var arrayGen = passFinal[rand];
-    passGen += arrayGen
-    }
+// function generatedPassword(passFinal, passLength) {
+//   var passGen = ""
+//     for (var i = 0; i < passLength; i++) {
+//     var rand = Math.floor(Math.random() * passFinal.length);
+//     var arrayGen = passFinal[rand];
+//     passGen += arrayGen
+//     }
   // } for (var i = 0; symValue.length < passLength; i++) {
   //   var rand = Math.floor(Math.random() * passFinal.length);
   //   var arrayGen = passFinal[rand];
@@ -64,16 +97,10 @@ function passwordGen(passFinal, passLength) {
   //   passGen += arrayGen
   // } 
   console.log(passGen)
-  return passGen;
-} 
-
-console.log(passwordGen)
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
   
-  passwordText.value = password;
-}
+
+
+
 
 generateBtn.addEventListener("click", writePassword);
 
