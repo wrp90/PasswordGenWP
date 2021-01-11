@@ -49,23 +49,26 @@ function generatePassword() {
     } else if (numbers && upperCase == true) {
     passFinal = passFinal.concat(numValue).concat(capitalValue);
     } else if (numbers && lowerCase == true) {
-      passFinal = passFinal.concat(numValue).concat(lowerC);
+    passFinal = passFinal.concat(numValue).concat(lowerC);
     } else if (upperCase && lowerCase == true) {
     passFinal = passFinal.concat(capitalValue).concat(lowerC);
     } else if (specialCharacters && lowerCase == true) {
     passFinal = passFinal.concat(symValue).concat(lowerC);
     } else if (specialCharacters && upperCase == true) {
-      passFinal = passFinal.concat(symValue).concat(capitalValue);
+    passFinal = passFinal.concat(symValue).concat(capitalValue);
     } else if (specialCharacters && numbers == true) {
-      passFinal = passFinal.concat(symValue).concat(numValue);
+    passFinal = passFinal.concat(symValue).concat(numValue);
     } else if (upperCase == true) {
-      passFinal = passFinal.concat(capitalValue);
+    passFinal = passFinal.concat(capitalValue);
     } else if (numbers == true) {
-      passFinal = passFinal.concat(numValue);
+    passFinal = passFinal.concat(numValue);
     } else if (specialCharacters == true) {
-      passFinal = passFinal.concat(symValue);
+    passFinal = passFinal.concat(symValue);
     } else if (lowerCase == true) {
-      passFinal = passFinal.concat(lowerC);
+    passFinal = passFinal.concat(lowerC);
+    } else if (!(specialCharacters && upperCase && numbers && lowerCase)) {
+      alert("You must select at least one of the given fields")
+      return null
     }
   
   var passGen = ""

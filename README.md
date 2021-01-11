@@ -12,3 +12,4 @@
 
 ## Based on the user input, a password generating function will use "if" and "else if" statements to pull characters from arrays and combine them with math.random into a final password array that is displayed in the display box on the page.
 
+
