@@ -67,8 +67,8 @@ function generatePassword() {
     } else if (lowerCase == true) {
     passFinal = passFinal.concat(lowerC);
     } else if (!(specialCharacters && upperCase && numbers && lowerCase)) {
-      alert("You must select at least one of the given fields")
-      return null
+    alert("You must select at least one of the given fields")
+    return null
     }
   
   var passGen = ""
