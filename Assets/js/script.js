@@ -8,6 +8,8 @@ function writePassword() {
   
   passwordText.value = password;
 }
+
+
 var lowerC = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var symValue = ['!','@','#','$','%','^','&','*','(',')'];
 var capitalValue = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -36,7 +38,7 @@ function generatePassword() {
   var passFinal = []
   if (specialCharacters && upperCase && numbers && lowerCase == true) {
     passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue).concat(lowerC);
-    } else if (specialCharacters && uppercase && numbers == true) {
+    } else if (specialCharacters && upperCase && numbers == true) {
     passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue);
     } else if (upperCase && numbers && lowerCase == true) {
     passFinal = passFinal.concat(capitalValue).concat(numValue).concat(lowerC);
@@ -48,7 +50,7 @@ function generatePassword() {
     passFinal = passFinal.concat(numValue).concat(capitalValue);
     } else if (numbers && lowerCase == true) {
       passFinal = passFinal.concat(numValue).concat(lowerC);
-    } else if (uppercase && lowerCase == true) {
+    } else if (upperCase && lowerCase == true) {
     passFinal = passFinal.concat(capitalValue).concat(lowerC);
     } else if (specialCharacters && lowerCase == true) {
     passFinal = passFinal.concat(symValue).concat(lowerC);
@@ -56,7 +58,7 @@ function generatePassword() {
       passFinal = passFinal.concat(symValue).concat(capitalValue);
     } else if (specialCharacters && numbers == true) {
       passFinal = passFinal.concat(symValue).concat(numValue);
-    } else if (uppercase == true) {
+    } else if (upperCase == true) {
       passFinal = passFinal.concat(capitalValue);
     } else if (numbers == true) {
       passFinal = passFinal.concat(numValue);
@@ -65,7 +67,6 @@ function generatePassword() {
     } else if (lowerCase == true) {
       passFinal = passFinal.concat(lowerC);
     }
-    // passwordGen(passFinal, passLength) 
   
   var passGen = ""
   for (var i = 0; i < passLength; i++) {
@@ -75,32 +76,6 @@ function generatePassword() {
   }
   return passGen;
 }
-
-// function generatedPassword(passFinal, passLength) {
-//   var passGen = ""
-//     for (var i = 0; i < passLength; i++) {
-//     var rand = Math.floor(Math.random() * passFinal.length);
-//     var arrayGen = passFinal[rand];
-//     passGen += arrayGen
-//     }
-  // } for (var i = 0; symValue.length < passLength; i++) {
-  //   var rand = Math.floor(Math.random() * passFinal.length);
-  //   var arrayGen = passFinal[rand];
-  //   passGen += arrayGen
-  // } for (var i = 0; numValue.length < passLength; i++) {
-  //   var rand = Math.floor(Math.random() * passFinal.length);
-  //   var arrayGen = passFinal[rand];
-  //   passGen += arrayGen
-  // } for (var i = 0; capitalValue.length < passLength; i++) {
-  //   var rand = Math.floor(Math.random() * passFinal.length);
-  //   var arrayGen = passFinal[rand];
-  //   passGen += arrayGen
-  // } 
-  console.log(passGen)
-  
-
-
-
 
 generateBtn.addEventListener("click", writePassword);
 
