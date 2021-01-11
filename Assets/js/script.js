@@ -8,10 +8,6 @@ var passFinal = []
 var passGen = ""
 
 
-
-
-
-
 function generatePassword() {
   var passLength = Number(prompt("How many characters would you like your password to be?")); { 
     if (isNaN(passLength)) {
@@ -28,54 +24,66 @@ function generatePassword() {
   var specialCharacters = confirm("Would you like special characters?");
   var upperCase = confirm("Would you like upper case letters?");
   var numbers = confirm("Would you like numbers?");
-}
-
-function passwordGen() {
-  for (var i = 0; lowerCase.length < passLength; i++) {
-    var rand = Math.floor(Math.random() * passCreated.length);
-    var arrayGen = passFinal[rand];
-    passGen += arrayGen;
-  } for (var i = 0; symValue.length < passLength; i++) {
-    var rand = Math.floor(Math.random() * passCreated.length);
-    var arrayGen = passFinal[rand];
-    passGen += arrayGen;
-  }for (var i = 0; numValue.length < passLength; i++) {
-    var rand = Math.floor(Math.random() * passCreated.length);
-    var arrayGen = passFinal[rand];
-    passGen += arrayGen;
-  } for (var i = 0; capitalValue.length < passLength; i++) {
-    var rand = Math.floor(Math.random() * passCreated.length);
-    var arrayGen = passFinal[rand];
-    passGen += arrayGen;
-  }
-  function concat() {
-   if (specialCharacters && upperCase && numbers == true) {
-    var passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue);
+  var passFinal = []
+  if (specialCharacters && upperCase && numbers == true) {
+    passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue);
     } else if (specialCharacters && uppercase == true) {
-    var passFinal = passFinal.concat(symValue).concat(capitalValue);
+    passFinal = passFinal.concat(symValue).concat(capitalValue);
     } else if (upperCase && numbers == true) {
-    var passFinal = passFinal.concat(upperCase).concat(numValue);
+    passFinal = passFinal.concat(upperCase).concat(numValue);
     } else if (specialCharacters && numbers == true) {
-    var passFinal = passFinal.concat(symValue).concat(numValue);
+    passFinal = passFinal.concat(symValue).concat(numValue);
     } else if (numbers == true) {
-    var passFinal = passFinal.concat(numValue);
+    passFinal = passFinal.concat(numValue);
     } else if (uppercase == true) {
-    var passFinal = passFinal.concat(capitalValue);
+    passFinal = passFinal.concat(capitalValue);
     } else if (specialCharacters == true) {
-    var passFinal = passFinal.concat(symValue);
-    } 
-  }
+    passFinal = passFinal.concat(symValue);
+    }
+    passwordGen(passFinal, passLength) 
 }
 
+function passwordGen(passFinal, passLength) {
+  var passGen = ""
+    for (var i = 0; i < passLength; i++) {
+    var rand = Math.floor(Math.random() * passFinal.length);
+    var arrayGen = passFinal[rand];
+    passGen += arrayGen
+    }
+  // } for (var i = 0; symValue.length < passLength; i++) {
+  //   var rand = Math.floor(Math.random() * passFinal.length);
+  //   var arrayGen = passFinal[rand];
+  //   passGen += arrayGen
+  // } for (var i = 0; numValue.length < passLength; i++) {
+  //   var rand = Math.floor(Math.random() * passFinal.length);
+  //   var arrayGen = passFinal[rand];
+  //   passGen += arrayGen
+  // } for (var i = 0; capitalValue.length < passLength; i++) {
+  //   var rand = Math.floor(Math.random() * passFinal.length);
+  //   var arrayGen = passFinal[rand];
+  //   passGen += arrayGen
+  // } 
+  console.log(passGen)
+  return passGen;
+} 
+
+console.log(passwordGen)
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  
   passwordText.value = password;
 }
 
-
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
 
 
 
