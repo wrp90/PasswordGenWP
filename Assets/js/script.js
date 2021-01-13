@@ -24,10 +24,10 @@ function generatePassword() {
       alert("Your input must be a number");
       return null
     } else if (passLength < 8) {
-      alert("Your password must be greater than 8 characters");
+      alert("Your password must be at least 8 characters");
       return null
     } else if (passLength > 128) {
-      alert("Your password must be less than 128 characters");
+      alert("Your password must be 128 characters or less");
       return null
     }
   }
@@ -39,36 +39,36 @@ function generatePassword() {
   if (specialCharacters && upperCase && numbers && lowerCase == true) {
     passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue).concat(lowerC);
     } else if (specialCharacters && upperCase && numbers == true) {
-    passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue);
+      passFinal = passFinal.concat(symValue).concat(capitalValue).concat(numValue);
     } else if (upperCase && numbers && lowerCase == true) {
-    passFinal = passFinal.concat(capitalValue).concat(numValue).concat(lowerC);
+      passFinal = passFinal.concat(capitalValue).concat(numValue).concat(lowerC);
     } else if (specialCharacters && numbers && lowerCase == true) {
-    passFinal = passFinal.concat(symValue).concat(numValue).concat(lowerC);
+      passFinal = passFinal.concat(symValue).concat(numValue).concat(lowerC);
     } else if (specialCharacters && upperCase && lowerCase == true) {
-    passFinal = passFinal.concat(symValue).concat(capitalValue).concat(lowerC);
+      passFinal = passFinal.concat(symValue).concat(capitalValue).concat(lowerC);
     } else if (numbers && upperCase == true) {
-    passFinal = passFinal.concat(numValue).concat(capitalValue);
+      passFinal = passFinal.concat(numValue).concat(capitalValue);
     } else if (numbers && lowerCase == true) {
-    passFinal = passFinal.concat(numValue).concat(lowerC);
+      passFinal = passFinal.concat(numValue).concat(lowerC);
     } else if (upperCase && lowerCase == true) {
-    passFinal = passFinal.concat(capitalValue).concat(lowerC);
+      passFinal = passFinal.concat(capitalValue).concat(lowerC);
     } else if (specialCharacters && lowerCase == true) {
-    passFinal = passFinal.concat(symValue).concat(lowerC);
+      passFinal = passFinal.concat(symValue).concat(lowerC);
     } else if (specialCharacters && upperCase == true) {
-    passFinal = passFinal.concat(symValue).concat(capitalValue);
+      passFinal = passFinal.concat(symValue).concat(capitalValue);
     } else if (specialCharacters && numbers == true) {
-    passFinal = passFinal.concat(symValue).concat(numValue);
+      passFinal = passFinal.concat(symValue).concat(numValue);
     } else if (upperCase == true) {
-    passFinal = passFinal.concat(capitalValue);
+      passFinal = passFinal.concat(capitalValue);
     } else if (numbers == true) {
-    passFinal = passFinal.concat(numValue);
+      passFinal = passFinal.concat(numValue);
     } else if (specialCharacters == true) {
-    passFinal = passFinal.concat(symValue);
+      passFinal = passFinal.concat(symValue);
     } else if (lowerCase == true) {
-    passFinal = passFinal.concat(lowerC);
+      passFinal = passFinal.concat(lowerC);
     } else if (!(specialCharacters && upperCase && numbers && lowerCase)) {
-    alert("You must select at least one of the given fields")
-    return null
+      alert("You must select at least one of the given fields")
+      return null
     }
   
   var passGen = ""
