@@ -19,4 +19,5 @@
 # Screen Shot
 ![Getting Started](./Assets/imgs/passGen.png)
 
+* For more info please contact wpapp90@gmail.com
 
